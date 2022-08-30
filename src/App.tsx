@@ -6,7 +6,7 @@ import { Dashboard } from "./components/Dashboard/Dashboard";
 import Modal from 'react-modal';
 import { GlobalStyle } from "./styles/global";
 import { NewTransactionModal } from './components/newTransactionModal/NewTransactionModal';
-import { TransactionsProvider } from './TransactionsContext';
+import { TransactionsProvider } from './hooks/useTransactions'
 
 
 createServer({
