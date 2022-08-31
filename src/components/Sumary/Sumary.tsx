@@ -1,7 +1,8 @@
+import { useTransactions } from '../../hooks/useTransactions'
+
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
-import { useTransactions } from '../../hooks/useTransactions'
 
 import { Container } from "./style"
 
@@ -12,7 +13,7 @@ export function Sumary(){
         if(transaction.type === 'deposit'){
             acc.deposits += transaction.amount;
             acc.total += transaction.amount;
-        } else if(transaction.type === 'withdraw'){
+        } else {
             acc.withdraws += transaction.amount;
             acc.total -= transaction.amount;
         }

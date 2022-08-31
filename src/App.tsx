@@ -3,7 +3,6 @@ import {createServer, Model} from 'miragejs';
 import { useState } from 'react';
 import { Header } from "./components/Header/Header";
 import { Dashboard } from "./components/Dashboard/Dashboard";
-import Modal from 'react-modal';
 import { GlobalStyle } from "./styles/global";
 import { NewTransactionModal } from './components/newTransactionModal/NewTransactionModal';
 import { TransactionsProvider } from './hooks/useTransactions'
@@ -47,8 +46,6 @@ createServer({
         })
     },
 });
-
-Modal.setAppElement('#root');
 
 export function App() {
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);

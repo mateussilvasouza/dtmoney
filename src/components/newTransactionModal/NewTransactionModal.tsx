@@ -1,7 +1,7 @@
 import { FormEvent, useState} from 'react';
 import { useTransactions } from '../../hooks/useTransactions'
-import Modal from 'react-modal';
 
+import Modal from 'react-modal';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg'
 import closeImg from '../../assets/close.svg'
@@ -12,13 +12,15 @@ interface NewTransactionsModalProps{
     isOpen: boolean,
     onRequestClose: () => void
 }
+
+Modal.setAppElement('#root');
+
 export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionsModalProps){
     const {createTransaction} = useTransactions()
     
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0);
     const [category, setCategory] = useState('');
-    
     const[type, setType] = useState('deposit')
 
     async function handleCreateNewTransaction(event: FormEvent){
@@ -35,7 +37,6 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionsModa
         setAmount(0);
         setCategory('');
         setType('deposit');
-
         onRequestClose();
     }
 
@@ -80,8 +81,8 @@ export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionsModa
                     </TransitionType>
                     <TransitionType
                      type='button'
-                     onClick={()=>{ setType('withdrawn')}}
-                     isActive={type === 'withdrawn'}
+                     onClick={()=>{ setType('withdraw')}}
+                     isActive={type === 'withdraw'}
                      activeColor="red">
                         <img src={outcomeImg} alt="" />
                         <span>Saída</span>

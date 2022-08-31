@@ -46,7 +46,7 @@ export function TransactionsProvider({children}:TransactionsProviderProps){
 
     return (
         <TransactionsContext.Provider value={{transactions, createTransaction}}>
-
+            {children}
         </TransactionsContext.Provider>
     );
 }
